@@ -1,5 +1,6 @@
 import unittest
-
+from webdriver import Driver
+from values import strings
 
 class TestWatch(unittest.TestCase):
 
@@ -8,10 +9,15 @@ class TestWatch(unittest.TestCase):
         self.driver.navigate(strings.base_url)
 
     def test_home_screen_components(self):
-        pass
+        home_screen = HomeScreen(self.driver)
+        home_screen.validate_title_is_present()
+        home_screen.validate_icon_is_present()
+        home_screen.validate_menu_options_are_present()
+        home_screen.validate_posts_are_visible()
+        home_screen.validate_social_media_links()
 
     def tearDown(self):
-        pass
+        self.driver.instance.quit()
 
 if __name__ == '__main__':
     unittest.main()
