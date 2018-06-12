@@ -4,7 +4,8 @@ from selenium import webdriver
 class Driver:
 
     def __init__(self):
-        self.instance = webdriver.Chrome()
+        # self.instance = webdriver.Chrome()
+        self.instance = webdriver.Firefox()
 
     def navigate(self, url):
         if isinstance(url, str):

@@ -1,6 +1,8 @@
 import unittest
 from webdriver import Driver
 from values import strings
+from pageobjects.homescreen import HomeScreen
+
 
 class TestWatch(unittest.TestCase):
 
@@ -10,11 +12,10 @@ class TestWatch(unittest.TestCase):
 
     def test_home_screen_components(self):
         home_screen = HomeScreen(self.driver)
-        home_screen.validate_title_is_present()
-        home_screen.validate_icon_is_present()
-        home_screen.validate_menu_options_are_present()
-        home_screen.validate_posts_are_visible()
-        home_screen.validate_social_media_links()
+        home_screen.validate_card_title_is_present()
+        home_screen.validate_login_button_is_present()
+        home_screen.validate_credential_fields_are_present()
+        home_screen.validate_register_link_is_present()
 
     def tearDown(self):
         self.driver.instance.quit()
