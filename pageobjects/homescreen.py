@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import pytest
+import allure
 
 from values import strings
 
@@ -25,18 +27,23 @@ class HomeScreen:
             EC.visibility_of_element_located((
                 By.ID, "id_password")))
 
+    @pytest.allure.step("Title presence validation")
     def validate_title_is_present(self):
         assert self.title.is_displayed()
 
+    @pytest.allure.step("Card Title presence validation")
     def validate_card_title_is_present(self):
         assert self.card_title.is_displayed()
 
+    @pytest.allure.step("Login button presence validation")
     def validate_login_button_is_present(self):
         assert self.login_button.is_displayed()
 
+    @pytest.allure.step("Cedential fields presence validation")
     def validate_credential_fields_are_present(self):
         assert self.user_field.is_displayed()
         assert self.password_field.is_displayed()
 
+    @pytest.allure.step("Register link presence validation")
     def validate_register_link_is_present(self):
         assert self.register_link.is_displayed()
